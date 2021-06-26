@@ -1,15 +1,5 @@
-module "ec2_cluster" {
-  source                 = "terraform-aws-modules/ec2-instance/aws"
-  version                = "~> 2.0"
+resource "aws_instance" "webserver" {
+ami = "ami-0747bdcabd34c712a"
+instance_type = "t2.micro"
 
-  name                   = "my-cluster"
-  instance_count         = 5
-
-  ami                    = "ami-0d296d66f22f256c2"
-  instance_type          = "t2.micro"
-  
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
 }
